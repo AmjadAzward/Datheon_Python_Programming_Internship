@@ -36,17 +36,21 @@ const stages = [
 `  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n=========`
 ];
 let hangmanWord, hangmanGuesses, hangmanWrong, hangmanIndex = 0;
+let hangmanMaxAttempts = 8;
 
 function newHangman() {
   hangmanIndex = (hangmanIndex + 1) % words.length;
   hangmanWord = words[hangmanIndex][1];
   hangmanGuesses = new Set(); hangmanWrong = 0;
   $('#hangmanCategory').textContent = words[hangmanIndex][0];
-  $('#hangmanStatus').textContent = 'Guess the word before the drawing is complete.';
+  $('#hangmanStatus').textContent = `Guess the word — ${hangmanMaxAttempts} incorrect guesses allowed.`;
   renderHangman();
 }
 function renderHangman() {
-  $('#hangmanDrawing').textContent = stages[hangmanWrong];
+  const stageIndex = hangmanMaxAttempts === 6
+    ? hangmanWrong
+    : Math.min(6, Math.round(hangmanWrong * 6 / hangmanMaxAttempts));
+  $('#hangmanDrawing').textContent = stages[stageIndex];
   $('#wordDisplay').textContent = [...hangmanWord].map(letter => hangmanGuesses.has(letter) ? letter : '_').join(' ');
   $('#keyboard').innerHTML = '';
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(letter => {
@@ -63,10 +67,23 @@ function guessLetter(letter) {
   if (hangmanGuesses.has(letter)) return;
   hangmanGuesses.add(letter);
   if (!hangmanWord.includes(letter)) hangmanWrong++;
-  if ([...hangmanWord].every(char => hangmanGuesses.has(char))) $('#hangmanStatus').textContent = 'Congratulations — you found the word!';
-  else if (hangmanWrong >= 6) $('#hangmanStatus').textContent = `Game over — the word was ${hangmanWord}.`;
+  if ([...hangmanWord].every(char => hangmanGuesses.has(char))) {
+    $('#hangmanStatus').textContent = 'Congratulations — you found the word!';
+  } else if (hangmanWrong >= hangmanMaxAttempts) {
+    $('#hangmanStatus').textContent = `Game over — the word was ${hangmanWord}.`;
+  } else {
+    $('#hangmanStatus').textContent = `${hangmanMaxAttempts - hangmanWrong} incorrect guesses remaining.`;
+  }
   renderHangman();
 }
+document.querySelectorAll('.difficulty').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.difficulty').forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    hangmanMaxAttempts = { easy: 8, medium: 6, hard: 4 }[button.dataset.difficulty];
+    newHangman();
+  });
+});
 $('#newHangman').addEventListener('click', newHangman);
 newHangman();
 
