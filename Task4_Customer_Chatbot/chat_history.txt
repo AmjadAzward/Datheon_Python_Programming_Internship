@@ -1,0 +1,6 @@
+[2026-11-26 19:48:07] SYSTEM: Conversation started
+[2026-11-26 19:48:13] CUSTOMER: help
+[2026-11-26 19:48:13] BOT: You can ask me about business hours, location, delivery, payments, returns, products or contact information.
+[2026-11-26 19:48:23] CUSTOMER: location
+[2026-11-26 19:48:23] BOT: Our main office is at 25 Main Street. Please contact our team for directions or additional location information.
+[2026-11-26 19:49:26] SYSTEM: Conversation started
