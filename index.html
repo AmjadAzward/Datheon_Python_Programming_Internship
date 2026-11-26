@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b10" />
+  <meta name="description" content="Live demos of four Python internship projects by Amjad." />
+  <title>Datheon Python Projects — Live Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Datheon projects home">
+      <span class="brand-mark">DA</span>
+      <span>Datheon<span class="muted"> / Python</span></span>
+    </a>
+    <a class="github-link" href="https://github.com/AmjadAzward/Datheon_Python_Programming_Internship" target="_blank" rel="noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0 1 12 6.82c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+      View source
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow"><span></span> Internship showcase · 2026</div>
+      <h1>Four Python projects.<br><em>One live playground.</em></h1>
+      <p>Explore interactive browser demos of the applications built during the Datheon Python Programming Internship.</p>
+      <div class="hero-meta">
+        <div><strong>04</strong><span>Applications</span></div>
+        <div><strong>100%</strong><span>Python powered</span></div>
+      </div>
+    </section>
+
+    <nav class="project-nav" aria-label="Project demos">
+      <button class="project-tab active" data-project="hangman"><span>01</span> Hangman</button>
+      <button class="project-tab" data-project="portfolio"><span>02</span> Portfolio</button>
+      <button class="project-tab" data-project="organizer"><span>03</span> File Organizer</button>
+      <button class="project-tab" data-project="chatbot"><span>04</span> Chatbot</button>
+    </nav>
+
+    <section class="demo-shell">
+      <div class="demo-header">
+        <div>
+          <span class="demo-number" id="demoNumber">01</span>
+          <h2 id="demoTitle">Hangman</h2>
+        </div>
+        <a id="sourceLink" class="source-link" href="https://github.com/AmjadAzward/Datheon_Python_Programming_Internship/tree/main/Task1_Hangman" target="_blank" rel="noreferrer">Source <span>↗</span></a>
+      </div>
+
+      <div id="hangmanDemo" class="demo-panel active">
+        <div class="hangman-layout">
+          <div class="hangman-drawing" id="hangmanDrawing"></div>
+          <div class="hangman-game">
+            <div class="game-label">Category · <span id="hangmanCategory">Technology</span></div>
+            <div class="word-display" id="wordDisplay"></div>
+            <p class="game-status" id="hangmanStatus">Guess the word before the drawing is complete.</p>
+            <div class="keyboard" id="keyboard"></div>
+            <button class="text-button" id="newHangman">New word ↻</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="portfolioDemo" class="demo-panel">
+        <div class="portfolio-layout">
+          <aside class="portfolio-form">
+            <label>Ticker<input id="tickerInput" placeholder="AAPL" maxlength="5" /></label>
+            <label>Shares<input id="sharesInput" type="number" min="1" placeholder="10" /></label>
+            <label>Buy price<input id="buyInput" type="number" min="0.01" placeholder="180.00" /></label>
+            <label>Current price<input id="currentInput" type="number" min="0.01" placeholder="225.50" /></label>
+            <button class="primary-button" id="addHolding">Add holding <span>＋</span></button>
+          </aside>
+          <div class="portfolio-results">
+            <div class="metric-grid">
+              <article><span>Invested</span><strong id="investedMetric">$0.00</strong></article>
+              <article><span>Market value</span><strong id="valueMetric">$0.00</strong></article>
+              <article><span>Return</span><strong id="returnMetric">0.00%</strong></article>
+            </div>
+            <div class="holding-table-wrap">
+              <table>
+                <thead><tr><th>Asset</th><th>Shares</th><th>Value</th><th>Return</th><th></th></tr></thead>
+                <tbody id="holdingsBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="organizerDemo" class="demo-panel">
+        <div class="organizer-layout">
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" multiple hidden />
+            <div class="drop-icon">＋</div>
+            <strong>Drop files here</strong>
+            <span>or choose files to organize</span>
+            <button class="outline-button" id="chooseFiles">Choose files</button>
+          </div>
+          <div class="organizer-results">
+            <div class="organizer-toolbar">
+              <span id="fileCount">No files selected</span>
+              <button class="text-button" id="clearFiles">Clear</button>
+            </div>
+            <div class="folder-grid" id="folderGrid"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="chatbotDemo" class="demo-panel">
+        <div class="chat-layout">
+          <div class="chat-sidebar">
+            <span class="online-dot"></span>
+            <div><strong>Customer Assistant</strong><small>Typically replies instantly</small></div>
+          </div>
+          <div class="chat-main">
+            <div class="chat-messages" id="chatMessages">
+              <div class="message bot">Hello! I’m your customer support assistant. How can I help you today?</div>
+            </div>
+            <form class="chat-input" id="chatForm">
+              <input id="chatInput" autocomplete="off" placeholder="Ask about hours, delivery, returns…" />
+              <button type="submit" aria-label="Send message">↗</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built for Datheon · Python Internship</span>
+    <span id="footerTime"></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
