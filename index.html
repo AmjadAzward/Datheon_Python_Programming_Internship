@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
 </head>
 <body>
   <div class="noise"></div>
@@ -59,7 +61,10 @@
             <div class="word-display" id="wordDisplay"></div>
             <p class="game-status" id="hangmanStatus">Guess the word before the drawing is complete.</p>
             <div class="keyboard" id="keyboard"></div>
-            <button class="text-button" id="newHangman">New word ↻</button>
+            <div class="hangman-actions">
+              <button class="text-button" id="hintHangman">Use hint 💡</button>
+              <button class="text-button" id="newHangman">New word ↻</button>
+            </div>
             <div class="hangman-controls">
               <span>Difficulty</span>
               <div class="difficulty-selector" aria-label="Hangman difficulty">
@@ -67,6 +72,11 @@
                 <button class="difficulty" data-difficulty="medium">Medium</button>
                 <button class="difficulty" data-difficulty="hard">Hard</button>
               </div>
+            </div>
+            <div class="hangman-stats">
+              <span>Played <strong id="hangmanPlayed">0</strong></span>
+              <span>Won <strong id="hangmanWon">0</strong></span>
+              <span>Win rate <strong id="hangmanRate">0%</strong></span>
             </div>
           </div>
         </div>
@@ -93,6 +103,10 @@
                 <tbody id="holdingsBody"></tbody>
               </table>
             </div>
+            <div class="portfolio-actions">
+              <button class="outline-button" id="portfolioRanking">View ranking</button>
+              <button class="outline-button" id="exportPortfolio">Export CSV</button>
+            </div>
           </div>
         </div>
       </div>
@@ -113,6 +127,12 @@
             </div>
             <div class="folder-grid" id="folderGrid"></div>
           </div>
+          <div class="organizer-actions">
+              <button class="outline-button" id="organizePreview">Dry run preview</button>
+              <button class="outline-button" id="organizeFiles">Organize</button>
+              <button class="outline-button" id="undoOrganize">Undo</button>
+              <button class="outline-button" id="organizeStats">Statistics</button>
+            </div>
         </div>
       </div>
 
@@ -130,6 +150,10 @@
               <input id="chatInput" autocomplete="off" placeholder="Ask about hours, delivery, returns…" />
               <button type="submit" aria-label="Send message">↗</button>
             </form>
+          </div>
+          <div class="chat-actions">
+            <button class="outline-button" id="chatEnd">End chat</button>
+            <button class="outline-button" id="chatClear">Clear history</button>
           </div>
         </div>
       </div>

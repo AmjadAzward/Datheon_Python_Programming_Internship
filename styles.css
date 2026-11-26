@@ -107,5 +107,12 @@ footer { max-width: 1180px; height: 110px; margin: 0 auto; display: flex; align-
 .difficulty { height: 34px; min-width: 70px; border: 0; border-right: 1px solid var(--line); background: var(--panel-2); color: var(--muted); font-size: 11px; }
 .difficulty:last-child { border-right: 0; }
 .difficulty.active { background: var(--accent); color: #111; font-weight: 800; }
+.hangman-actions { display: flex; gap: 18px; margin: 2px 0 4px; }
+.hangman-stats { display: flex; gap: 18px; margin-top: 14px; color: var(--muted); font-size: 11px; }
+.hangman-stats strong { color: var(--text); font-family: DM Mono, monospace; }
+.portfolio-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.edit-holding { border: 0; background: transparent; color: var(--accent); font-size: 11px; }
+.organizer-actions { grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 12px 28px; display: flex; gap: 8px; }
+.chat-actions { grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 10px 18px; display: flex; justify-content: flex-end; gap: 8px; }
 @media (max-width: 1220px) { .site-header, main, footer { margin-left: 24px; margin-right: 24px; } }
 @media (max-width: 760px) { .site-header { height: 68px; }.github-link { font-size: 0; }.github-link svg { width: 20px; } h1 { letter-spacing: -3px; }.hero { min-height: 390px; }.hero-meta { display:none; }.project-nav { grid-template-columns: repeat(2,1fr); }.project-tab { border-bottom:1px solid var(--line); }.hangman-layout,.organizer-layout,.portfolio-layout,.chat-layout { grid-template-columns: 1fr; }.hangman-drawing { min-height:220px; border-right:0; border-bottom:1px solid var(--line); }.hangman-game { padding:28px 22px; }.keyboard { grid-template-columns: repeat(7,1fr); }.portfolio-form { border-right:0; border-bottom:1px solid var(--line); }.metric-grid { grid-template-columns:1fr; }.metric-grid article { height:70px; }.drop-zone { min-height:220px; }.organizer-results { border-left:0; border-top:1px solid var(--line); }.chat-sidebar { display:none; }.chat-layout { min-height:438px; }.chat-main { grid-template-rows:1fr 70px; } footer { margin-top:20px; } }
